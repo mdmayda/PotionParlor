@@ -1,8 +1,7 @@
 <?php
 session_start();
-include('connection.php');
+include('server/connection.php');
 include('Layout/header.php');
-include('Layout/Footer.php');
 
 if (!isset($_SESSION['logged_in'])) {
   header('location: login.php');
@@ -40,7 +39,7 @@ if (isset($_GET['logout'])) {
 
 </body>
 <footer>
-
+    <!-- <?php include('Layout/footer.php'); ?> -->
 </footer>
 
 </html>

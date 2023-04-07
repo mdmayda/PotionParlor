@@ -40,13 +40,7 @@ if (isset($_GET['logout'])) {
 
 </body>
 <footer>
-    <center>
-        <div class="footer">
-            <p>
-                POTION PARLOR
-            </p>
-        </div>
-    </center>
+    <!-- <?php include('Layout/footer.php'); ?> -->
 </footer>
 
 </html>
