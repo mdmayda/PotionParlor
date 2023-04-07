@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="./style/layout.css">
-<link rel="stylesheet" href="./style/bootsrap.css">
+<head>
+  <link rel="stylesheet" href="homeStyle.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
 
 <header>
     <nav>

@@ -329,6 +329,7 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
+  text-align: center;
 }
 
 label {
@@ -1753,6 +1754,7 @@ progress {
   color: var(--bs-table-color);
   vertical-align: top;
   border-color: var(--bs-table-border-color);
+  border-radius: 10px 10px 10px 10px;
 }
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
@@ -1768,7 +1770,7 @@ progress {
 }
 
 .table-group-divider {
-  border-top: 2px solid currentcolor;
+  border-top: 1px solid black;
 }
 
 .caption-top {
@@ -1985,7 +1987,7 @@ progress {
 }
 
 .form-text {
-  margin-top: 0.25rem;
+  margin-top: rem;
   font-size: 0.875em;
   color: #6c757d;
 }
@@ -3047,14 +3049,15 @@ textarea.form-control-lg {
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #6c757d;
   --bs-gradient: none;
+  --bs-btn-box-shadow : 0 1px 1px 1px #333333;
 }
 
 .btn-outline-success {
-  --bs-btn-color: #198754;
-  --bs-btn-border-color: #198754;
+  --bs-btn-color: #333333;
+  --bs-btn-border-color: #333333;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #198754;
-  --bs-btn-hover-border-color: #198754;
+  --bs-btn-hover-bg: #71C8F1;
+  --bs-btn-hover-border-color: #71C8F1;
   --bs-btn-focus-shadow-rgb: 25, 135, 84;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #198754;
