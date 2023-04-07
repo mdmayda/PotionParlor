@@ -38,14 +38,14 @@ body {
  */
 
 body {
-  background-color: #F8F9FD;
+  background-color: #f5f5f5;
   font-family: 'Poppins', sans-serif;
 }
 
 /* Style Content di bawah */
 
 .container {
-  
+
 }
 
 .hero {
@@ -71,4 +71,57 @@ body {
   padding-right: 50px;
   flex-direction: column;
 
+}
+
+.card-grid {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4em;
+  padding: 2rem;
+  
+}
+
+.card {
+  width: 18rem;
+  height: 100%;
+}
+
+.card-quantity {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard_button {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.crud {
+  flex: end;
+  padding-right: 40px;
+  text-decoration: none;
+}
+.dashboard_button a {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 50px;
+  text-decoration: none;
+  flex: end;
+}
+
+.test {
+  display: flex;
+
+  flex-direction: column;
+  height: 64px;
+}
+
+.test .crud {
+  width: fit-content;
+  align-self: flex-end;
 }
