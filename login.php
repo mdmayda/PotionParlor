@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('server/connection.php');
 
 if (isset($_SESSION['logged_in'])) {
@@ -81,7 +80,7 @@ if (isset($_POST['login_btn'])) {
                 } ?>
                 <div class="txt_field">
                     <input type="email" name="aptk_email" class="form-control" id="aptk_email" required>
-                    <label>Username</label>
+                    <label>Email</label>
                 </div>
                 <div class="txt_field">
                     <input type="password" name="aptk_password" class="form-control" required>

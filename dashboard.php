@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('server/connection.php');
 include('Layout/header.php');
 
@@ -19,8 +18,18 @@ if (isset($_GET['logout'])) {
   }
 }
 
-$sql = "SELECT * FROM  drug";
-$result = mysqli_query($conn, $sql);
+//search by obat
+if (isset($_POST['btnsearch'])) {
+  $keyword = $_POST['txtsearch'];
+  $query = "SELECT * FROM drug
+  WHERE drug_name LIKE '%$keyword%'
+  ORDER BY drug_id asc";
+} else {
+  $query = "SELECT * FROM drug ORDER BY drug_id asc";
+}
+
+//tampil semua
+$tampil = mysqli_query($conn, $query);
 ?>
 <!-- test -->
 
@@ -39,21 +48,35 @@ $result = mysqli_query($conn, $sql);
 
 
 <body>
+
   <section>
-    <div class="test">
-      <a class="crud" href="input_obat.php">
-        Tambah Obat Baru<i class="bi bi-plus-circle"></i>
-      </a>
+
+    <div class="container d-flex">
+      <div class="col-md-6">
+        <form method="POST">
+          <div class="input-group my-3">
+            <input class="form-control" type="search" name="txtsearch" placeholder="Ketik Obat Yang Ingin Anda Cari" aria-label="Search">
+            <button class="btn btn-outline-tertiary pt-2" type="submit" name="btnsearch">Search</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-6 mx-md-5 py-3">
+        <a class="crud" href="input_obat.php" align="center">
+          <h5>Tambah Obat Baru <i class="bi bi-plus-circle"></i></h5>
+        </a>
+      </div>
     </div>
     <div class="card-grid" id="card-grid">
-      <?php while ($row = $result->fetch_assoc()) { ?>
+      <?php while ($row = $tampil->fetch_assoc()) { ?>
         <div class="card">
           <div class="img">
             <img src="img\loratadine.png">
+
           </div>
           <div class="card-body">
             <h5 class="card-title text-center"><?php echo $row['drug_name'] ?></h5>
-            <p class="text-center opacity-50">Obat Yang Tersedia</p>
+            <?php echo "<a class='text-center text-align : center opacity-50' href='update_obat.php?drug_id=$row[drug_id]'>Obat Yang Tersedia</a>" ?>
             <div class="col-sm-12">
               <input type="text" readonly class="card-quantity text-center rounded opacity-50" id="staticQuantity" value="<?php echo $row['quantity'] ?>">
             </div>
@@ -66,7 +89,7 @@ $result = mysqli_query($conn, $sql);
 </body>
 
 <footer>
-  <?php include('Layout/footer.php'); ?> 
+  <?php include('Layout/footer.php'); ?>
 </footer>
 
 </html>

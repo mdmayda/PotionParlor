@@ -103,6 +103,7 @@ body {
 .crud {
   flex: end;
   padding-right: 40px;
+  justify-content: flex-end;
   text-decoration: none;
 }
 .dashboard_button a {
@@ -116,12 +117,16 @@ body {
 
 .test {
   display: flex;
-
-  flex-direction: column;
+  flex-direction: row;
   height: 64px;
 }
 
-.test .crud {
+/* .test .crud {
+  width: fit-content;
+  align-self: flex-end;
+} */
+
+.crudl{
   width: fit-content;
   align-self: flex-end;
 }
