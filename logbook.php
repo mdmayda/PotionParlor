@@ -38,7 +38,7 @@ if (isset($_GET['logout'])) {
 
 </body>
 <footer>
-    <!-- <?php include('Layout/footer.php'); ?> -->
+    <?php include('Layout/footer.php'); ?>
 </footer>
 
 </html>

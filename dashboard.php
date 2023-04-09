@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
 <body>
   <section>
     <div class="test">
-      <a class="crud" href="crudobat.php">
+      <a class="crud" href="input_obat.php">
         Tambah Obat Baru<i class="bi bi-plus-circle"></i>
       </a>
     </div>
@@ -66,7 +66,7 @@ $result = mysqli_query($conn, $sql);
 </body>
 
 <footer>
-  <!-- <?php include('Layout/footer.php'); ?> -->
+  <?php include('Layout/footer.php'); ?> 
 </footer>
 
 </html>
