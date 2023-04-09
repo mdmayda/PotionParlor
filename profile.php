@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
     <div class="col-md-6">
     <label class="form-label">Profile Picture</label>
         <div class="card" style="width: 300px;">
-    <img src="img/pngwing.com.png" class="card-body justity-contents-center" alt="">
+    <img src="img/" class="card-body justity-contents-center" alt="">
     </div>
 		    <label class="form-label mt-1">Choose Your Photo</label>
 		    <input type="file" 
@@ -89,7 +89,8 @@ if (isset($_GET['logout'])) {
 		           name="spesialis"
 		           value="<?php echo (isset($_GET['major']))?$_GET['aptk_phone']:"" ?>">
           </div>
-		  <button type="submit" class="btn btn-primary px-4 me-5 mt-3">Edit</button>
+		  <button type="submit" class="btn btn-primary px-4 me-5 mt-3">
+            <a href="editprofile.php">Edit</button>
 		  <a href="dashboard.php" class="btn btn-outline-secondary px-4 mt-3 ms-5 ">Back</a>
         </div>
 		</form>
