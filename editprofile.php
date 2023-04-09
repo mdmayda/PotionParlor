@@ -37,28 +37,27 @@ if (isset($_GET['logout'])) {
    <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
+    <div class="container bt-5 mt-2 mb-5">
     <div class="container d-flex">
-    <div class="col-md-6">
-    <label class="form-label">Profile Picture</label>
-        <div class="card" style="width: 300px;">
-    <img src="img/pngwing.com.png" class="card-body justity-contents-center" alt="">
+    <div class="col-md-4 mt-5 pd-5 ms-5">
+    <label class="form-label mt-4">Profile Picture</label>
+        <div class="card">
+    <img src="img/Girl portrait 1.png" class="card-body" alt="">
     </div>
-		    <label class="form-label mt-1">Choose Your Photo</label>
+		    <label class="form-label mt-2">Choose Your Photo</label>
 		    <input type="file" 
-		           class="form-control mt-2"
+		           class="form-control"
 		           name="aptk_photo">
         </form>
     </div>
-    <div class="col-md-6">
-    <form class="shadow w-450 p-3" >
+    <h4 class="display-4 fs-1 ms-5">PROFILE</h4><br>
+    <div class="col-md-5 mt-5">
     	<form class="profile" 
     	      action="php/profile.php" 
     	      method="post"
     	      enctype="multipart/form-data">
-
-    		<h4 class="display-4  fs-1">PROFILE</h4><br>
     	
-		  <div class="mb-3">
+		  <div class="mb-3 mt-4">
 		    <label class="form-label">Name</label>
 		    <input type="text" 
 		           class="form-control"
@@ -89,12 +88,14 @@ if (isset($_GET['logout'])) {
 		           name="spesialis"
 		           value="<?php echo (isset($_GET['major']))?$_GET['aptk_phone']:"" ?>">
           </div>
-		  <button type="submit" class="btn btn-primary px-4 me-5 mt-3">Save</button>
-		  <a href="profile.php" class="btn btn-outline-secondary px-4 mt-3 ms-5 ">Back</a>
+		  <button type="submit" class="btn btn-primary px-4 me-5 mt-3">
+            <a href="#">Save</button>
+		  <a href="dashboard.php" class="btn btn-outline-secondary px-4 mt-3 ms-5 ">Back</a>
         </div>
 		</form>
     </div>
     </div>
+</div>
     <footer>
     <?php include('Layout/footer.php'); ?>
 </footer>
