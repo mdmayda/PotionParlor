@@ -19,7 +19,18 @@ if (isset($_GET['logout'])) {
     }
 }
 
-$query = "SELECT * FROM logbook  LIMIT 1";
+//search by activity
+if (isset($_POST['btnsearch'])) {
+    $keyword = $_POST['txtsearch'];
+    $query = "SELECT * FROM logbook
+    WHERE logbook_activity LIKE '%$keyword'
+    ORDER BY logbook_id asc";
+} else {
+    $query = "SELECT * FROM logbook ORDER BY logbook_id asc";
+}
+
+//tampil semua
+$tampil = mysqli_query($conn, $query);
 
 ?>
 
@@ -32,16 +43,29 @@ $query = "SELECT * FROM logbook  LIMIT 1";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logbook</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <div class="container">
-        <form class="form-text">
-            <input class="form-control-sm-2 py-1" type="search" placeholder="Cari Aktivitas" aria-label="Search">
-            <button class="btn btn-outline-success pt-2" type="submit">Search</button>
-        </form>
+    <div class="container d-flex">
+        <div class="col-md-6">
+            <form method="POST">
+                <div class="input-group my-3">
+                    <input class="form-control" type="search" name="txtsearch" value="<?= $_POST['txtsearch'] ?>" placeholder="Cari Aktivitas" aria-label="Search">
+                    <button class="btn btn-outline-tertiary pt-2" type="submit" name="btnsearch">Search</button>
+                </div>
+            </form>
+        </div>
 
-        <table class="table table-hover" style="box-shadow: 0 1px 1px 1px #333333">
+        <div class="col-md-6 mx-md-5">
+            <a class="crud" href="crud_logbook.php">
+                <h5>Tambah Aktivitas Baru <i class="bi bi-plus-circle"></i></h5>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-hover-my-5" style="box-shadow: 0 1px 1px 1px #333333">
             <thead>
                 <tr>
                     <th scope="col">ID LOGBOOK</th>
@@ -52,24 +76,19 @@ $query = "SELECT * FROM logbook  LIMIT 1";
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><?php echo $_SESSION['logbook_id'] ?></td>
-                    <td><?php echo $_SESSION['aptk_id'] ?></td>
-                    <td><?php echo $_SESSION['drug_id'] ?></td>
-                    <td><?php echo $_SESSION['logbook_date'] ?></td>
-                    <td><?php echo $_SESSION['logbook_activity'] ?></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                <?php
+                while ($data = mysqli_fetch_array($tampil)) {
+                ?>
+                    <tr>
+                        <td><?php echo $data['logbook_id'] ?></td>
+                        <td><?php echo $data['aptk_id'] ?></td>
+                        <td><?php echo $data['drug_id'] ?></td>
+                        <td><?php echo $data['logbook_date'] ?></td>
+                        <td><?php echo $data['logbook_activity'] ?></td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
     </div>
